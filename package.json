@@ -6,9 +6,10 @@
     "parcel": "^2.0.0-rc.0"
   },
   "scripts": {
-    "dev": "parcel serve ./src/index.html --port 8084",
-    "build": "parcel build ./src/index.html",
-    "deploy": "npm run build && gh-pages"
+    "dev": "parcel serve src/index.html --port 8084",
+    "build": "parcel build src/index.html",
+    "deploy": "gh-pages -d ./dist",
+    "build-and-deploy": "npm run build && npm run deploy"
   },
   "dependencies": {
     "gh-pages": "^3.2.3",
