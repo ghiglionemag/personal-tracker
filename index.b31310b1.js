@@ -459,13 +459,15 @@ var _text = require("./components/text");
 var _nav = require("./components/nav");
 var _toDoItem = require("./components/to-do-item");
 var _home = require("./pages/home");
+var _state = require("./state");
 function main() {
     const rootElement = document.querySelector(".root");
     _home.initHomePage(rootElement);
+    _state.state.initState();
 }
 main();
 
-},{"./pages/home":"jrMbi","./components/to-do-item":"8OD75","./components/text":"8YEyP","./components/nav":"9HXFv"}],"jrMbi":[function(require,module,exports) {
+},{"./pages/home":"jrMbi","./components/to-do-item":"8OD75","./components/text":"8YEyP","./components/nav":"9HXFv","./state":"28XHA"}],"jrMbi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initHomePage", ()=>initHomePage
