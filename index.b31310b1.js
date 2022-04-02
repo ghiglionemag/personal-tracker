@@ -467,7 +467,135 @@ function main() {
 }
 main();
 
-},{"./pages/home":"jrMbi","./components/to-do-item":"8OD75","./components/text":"8YEyP","./components/nav":"9HXFv","./state":"28XHA"}],"jrMbi":[function(require,module,exports) {
+},{"./components/text":"8YEyP","./components/nav":"9HXFv","./components/to-do-item":"8OD75","./pages/home":"jrMbi","./state":"28XHA"}],"8YEyP":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "Text", ()=>Text1
+);
+class Text1 extends HTMLElement {
+    constructor(){
+        super();
+        this.tags = [
+            "h1",
+            "h2",
+            "p"
+        ];
+        this.tag = "p";
+        this.shadow = this.attachShadow({
+            mode: "open"
+        });
+        if (this.tags.includes(this.getAttribute("tag"))) this.tag = this.getAttribute("tag") || this.tag;
+        this.render();
+    }
+    render() {
+        const style = document.createElement("style");
+        style.innerHTML = `\n    h1{\n        font-size: 52px;\n        font-weight: bold;\n        background-color: blue;\n        max-width: 98%;\n      }\n      h2{\n        font-size: 25px;\n        font-weight: bold;\n        height: 35px;\n      }\n      h2:hover{\n          background-color: #fff;\n      }\n      p{\n        font-family: "Roboto";\n        font-size: 18px;\n      }\n      h1,\n      h2{\n        font-family: 'Fira Sans', sans-serif;\n        background-color: rgba(255, 255, 255, 0.5);\n        color: #000;\n        border-radius: 10px;\n        text-align: center;\n        color: #000;\n        -webkit-box-shadow: -6px 8px 6px -6px black;\n        -moz-box-shadow: 0 8px 6px -6px black;\n         box-shadow: 0 8px 6px -6px black;\n      }\n      `;
+        const rootEl = document.createElement(this.tag);
+        rootEl.textContent = this.textContent;
+        this.shadow.appendChild(style);
+        this.shadow.appendChild(rootEl);
+    }
+}
+customElements.define("my-text", Text1);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"JacNc":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule') return;
+        // Skip duplicate re-exports when they have the same value.
+        if (key in dest && dest[key] === source[key]) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"9HXFv":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "NavComponent", ()=>NavComponent
+);
+class NavComponent extends HTMLElement {
+    constructor(){
+        super();
+        this.render();
+    }
+    render() {
+        const shadow = this.attachShadow({
+            mode: "open"
+        });
+        const div = document.createElement("div");
+        const style = document.createElement("style");
+        style.innerText = `\n       .nav{\n        padding: 15px;\n       }\n        `;
+        div.innerHTML = `\n        \n          <my-text tag="h2">Pendientes</my-text>\n          <my-text tag="h2">Realizados</my-text>\n        `;
+        div.classList.add("nav");
+        shadow.appendChild(div);
+        shadow.appendChild(style);
+    }
+}
+customElements.define("nav-comp", NavComponent);
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"8OD75":[function(require,module,exports) {
+customElements.define("to-do-item", class extends HTMLElement {
+    constructor(){
+        super();
+        this.checked = false;
+        this.shadow = this.attachShadow({
+            mode: "open"
+        });
+    }
+    connectedCallback() {
+        this.title = this.getAttribute("title") || "";
+        this.checked = this.hasAttribute("checked");
+        this.id = this.getAttribute("id");
+        const style = document.createElement("style");
+        style.innerText = `\n       \n        .root{\n            border-radius: 2px;\n            padding: 22px 13px;\n            font-size: 18px;\n            background-color: rgba(255, 255, 255, 0.5);\n            color: #000;\n            border-radius: 10px;\n            color: #000;\n            -webkit-box-shadow: 0 8px 6px -6px black;\n            -moz-box-shadow: 0 8px 6px -6px black;\n            box-shadow: 0 8px 6px -6px black;\n        }\n\n        .titulo.checked{\n            text-decoration: line-through;\n        }\n        `;
+        this.shadow.appendChild(style);
+        this.render();
+    }
+    addListeners() {
+        const checkedElement = this.shadow.querySelector(".checkbox-input");
+        checkedElement.addEventListener("click", (e)=>{
+            const target = e.target;
+            const event = new CustomEvent("change", {
+                detail: {
+                    id: this.id,
+                    value: target.checked
+                }
+            });
+            this.dispatchEvent(event);
+        });
+    }
+    render() {
+        const div = document.createElement("div");
+        div.innerHTML = `\n      <my-text tag="p" class="titulo ${this.checked ? "checked" : ""}"> ${this.title} </my-text>\n      <input class="checkbox-input" type="checkbox"\n      ${this.checked ? "checked" : ""}\n      />\n      `;
+        div.classList.add("root");
+        this.shadow.appendChild(div);
+        this.addListeners();
+    }
+});
+
+},{}],"jrMbi":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "initHomePage", ()=>initHomePage
@@ -570,134 +698,6 @@ const state = {
         this.listeners.push(callback);
     }
 };
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"JacNc":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, '__esModule', {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === 'default' || key === '__esModule') return;
-        // Skip duplicate re-exports when they have the same value.
-        if (key in dest && dest[key] === source[key]) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"8OD75":[function(require,module,exports) {
-customElements.define("to-do-item", class extends HTMLElement {
-    constructor(){
-        super();
-        this.checked = false;
-        this.shadow = this.attachShadow({
-            mode: "open"
-        });
-    }
-    connectedCallback() {
-        this.title = this.getAttribute("title") || "";
-        this.checked = this.hasAttribute("checked");
-        this.id = this.getAttribute("id");
-        const style = document.createElement("style");
-        style.innerText = `\n       \n        .root{\n            border-radius: 2px;\n            padding: 22px 13px;\n            font-size: 18px;\n            background-color: rgba(255, 255, 255, 0.5);\n            color: #000;\n            border-radius: 10px;\n            color: #000;\n            -webkit-box-shadow: 0 8px 6px -6px black;\n            -moz-box-shadow: 0 8px 6px -6px black;\n            box-shadow: 0 8px 6px -6px black;\n        }\n\n        .titulo.checked{\n            text-decoration: line-through;\n        }\n        `;
-        this.shadow.appendChild(style);
-        this.render();
-    }
-    addListeners() {
-        const checkedElement = this.shadow.querySelector(".checkbox-input");
-        checkedElement.addEventListener("click", (e)=>{
-            const target = e.target;
-            const event = new CustomEvent("change", {
-                detail: {
-                    id: this.id,
-                    value: target.checked
-                }
-            });
-            this.dispatchEvent(event);
-        });
-    }
-    render() {
-        const div = document.createElement("div");
-        div.innerHTML = `\n      <my-text tag="p" class="titulo ${this.checked ? "checked" : ""}"> ${this.title} </my-text>\n      <input class="checkbox-input" type="checkbox"\n      ${this.checked ? "checked" : ""}\n      />\n      `;
-        div.classList.add("root");
-        this.shadow.appendChild(div);
-        this.addListeners();
-    }
-});
-
-},{}],"8YEyP":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Text", ()=>Text1
-);
-class Text1 extends HTMLElement {
-    constructor(){
-        super();
-        this.tags = [
-            "h1",
-            "h2",
-            "p"
-        ];
-        this.tag = "p";
-        this.shadow = this.attachShadow({
-            mode: "open"
-        });
-        if (this.tags.includes(this.getAttribute("tag"))) this.tag = this.getAttribute("tag") || this.tag;
-        this.render();
-    }
-    render() {
-        const style = document.createElement("style");
-        style.innerHTML = `\n    h1{\n        font-size: 52px;\n        font-weight: bold;\n        background-color: blue;\n        max-width: 98%;\n      }\n      h2{\n        font-size: 25px;\n        font-weight: bold;\n        height: 35px;\n      }\n      h2:hover{\n          background-color: #fff;\n      }\n      p{\n        font-family: "Roboto";\n        font-size: 18px;\n      }\n      h1,\n      h2{\n        font-family: 'Fira Sans', sans-serif;\n        background-color: rgba(255, 255, 255, 0.5);\n        color: #000;\n        border-radius: 10px;\n        text-align: center;\n        color: #000;\n        -webkit-box-shadow: -6px 8px 6px -6px black;\n        -moz-box-shadow: 0 8px 6px -6px black;\n         box-shadow: 0 8px 6px -6px black;\n      }\n      `;
-        const rootEl = document.createElement(this.tag);
-        rootEl.textContent = this.textContent;
-        this.shadow.appendChild(style);
-        this.shadow.appendChild(rootEl);
-    }
-}
-customElements.define("my-text", Text1);
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}],"9HXFv":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "NavComponent", ()=>NavComponent
-);
-class NavComponent extends HTMLElement {
-    constructor(){
-        super();
-        this.render();
-    }
-    render() {
-        const shadow = this.attachShadow({
-            mode: "open"
-        });
-        const div = document.createElement("div");
-        const style = document.createElement("style");
-        style.innerText = `\n       .nav{\n        padding: 15px;\n       }\n        `;
-        div.innerHTML = `\n        \n          <my-text tag="h2">Pendientes</my-text>\n          <my-text tag="h2">Realizados</my-text>\n        `;
-        div.classList.add("nav");
-        shadow.appendChild(div);
-        shadow.appendChild(style);
-    }
-}
-customElements.define("nav-comp", NavComponent);
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"JacNc"}]},["8uBhv","4aleK"], "4aleK", "parcelRequireadcf")
 
