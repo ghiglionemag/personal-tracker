@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "parcel serve src/index.html --port 8084",
-    "build": "parcel build ./src/index.html --dist-dir build --public-url /ersonal-tracker",
+    "build": "parcel build ./src/index.html --dist-dir build --public-url /personal-tracker",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
