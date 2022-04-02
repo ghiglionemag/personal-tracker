@@ -489,7 +489,7 @@ class Text1 extends HTMLElement {
     }
     render() {
         const style = document.createElement("style");
-        style.innerHTML = `\n    h1{\n        font-size: 52px;\n        font-weight: bold;\n        background-color: blue;\n        max-width: 98%;\n      }\n      h2{\n        font-size: 25px;\n        font-weight: bold;\n        height: 35px;\n      }\n      h2:hover{\n          background-color: #fff;\n      }\n      p{\n        font-family: "Roboto";\n        font-size: 18px;\n      }\n      h1,\n      h2{\n        font-family: 'Fira Sans', sans-serif;\n        background-color: rgba(255, 255, 255, 0.5);\n        color: #000;\n        border-radius: 10px;\n        text-align: center;\n        color: #000;\n        -webkit-box-shadow: -6px 8px 6px -6px black;\n        -moz-box-shadow: 0 8px 6px -6px black;\n         box-shadow: 0 8px 6px -6px black;\n      }\n      `;
+        style.innerHTML = `\n    h1{\n        font-size: 52px;\n        font-weight: bold;\n        background-color: blue;\n        max-width: 98%;\n      }\n      h2{\n        font-size: 25px;\n        font-weight: bold;\n        height: 35px;\n      }\n      h2:hover{\n          background-color: #fff;\n      }\n      p{\n        font-family: 'Fira Sans', sans-serif;\n        font-size: 18px;\n      }\n      h1,\n      h2{\n        font-family: 'Fira Sans', sans-serif;\n        background-color: rgba(255, 255, 255, 0.5);\n        color: #000;\n        border-radius: 10px;\n        text-align: center;\n      }\n      `;
         const rootEl = document.createElement(this.tag);
         rootEl.textContent = this.textContent;
         this.shadow.appendChild(style);
@@ -569,7 +569,7 @@ customElements.define("to-do-item", class extends HTMLElement {
         this.checked = this.hasAttribute("checked");
         this.id = this.getAttribute("id");
         const style = document.createElement("style");
-        style.innerText = `\n       \n        .root{\n            border-radius: 2px;\n            padding: 22px 13px;\n            font-size: 18px;\n            background-color: rgba(255, 255, 255, 0.5);\n            color: #000;\n            border-radius: 10px;\n            color: #000;\n            -webkit-box-shadow: 0 8px 6px -6px black;\n            -moz-box-shadow: 0 8px 6px -6px black;\n            box-shadow: 0 8px 6px -6px black;\n        }\n\n        .titulo.checked{\n            text-decoration: line-through;\n        }\n        `;
+        style.innerText = `\n       \n        .item{\n            display: flex;\n            justify-content: space-between;\n            padding: 22px 13px;\n            font-size: 18px;\n            background-color: rgba(255, 255, 255, 0.5);\n            color: #000;\n            border-radius: 10px;\n        }\n\n        .titulo.checked{\n            text-decoration: line-through;\n        }\n        .checkbox-input {\n          margin-top: 15px;\n          height: 20px;\n          width: 20px;\n        }\n        `;
         this.shadow.appendChild(style);
         this.render();
     }
@@ -589,7 +589,7 @@ customElements.define("to-do-item", class extends HTMLElement {
     render() {
         const div = document.createElement("div");
         div.innerHTML = `\n      <my-text tag="p" class="titulo ${this.checked ? "checked" : ""}"> ${this.title} </my-text>\n      <input class="checkbox-input" type="checkbox"\n      ${this.checked ? "checked" : ""}\n      />\n      `;
-        div.classList.add("root");
+        div.classList.add("item");
         this.shadow.appendChild(div);
         this.addListeners();
     }
@@ -604,7 +604,7 @@ var _state = require("../../state");
 function initHomePage(containerEl) {
     const div = document.createElement("div");
     const tasks = _state.state.getEnabledTasks();
-    div.innerHTML = ` \n  <div class="header">\n  <my-text tag="h1"> Mis pendientes </my-text> \n  <input class="inputEl" type="text" placeholder="Nuevo pendiente">\n  <button class="add-button">Agregar</button>\n  </div>\n  <ul class="lista"></ul> \n\n  \n  `;
+    div.innerHTML = ` \n  <div class="header">\n  <my-text tag="h1"> Mis pendientes </my-text> \n  <input class="inputEl" type="text" placeholder="Nuevo pendiente">\n  <button class="add-button">Agregar</button>\n  </div>\n  <ul class="lista"></ul> \n  <div class="pagenumbers" id="pagination"></div>\n  \n  `;
     const tasksList = div.querySelector(".lista");
     function createTasks(items) {
         tasksList.innerHTML = "";
@@ -625,7 +625,7 @@ function initHomePage(containerEl) {
     createTasks(tasks);
     div.classList.add("to-do");
     const style = document.createElement("style");
-    style.innerText = `\n       .root{\n        height: 100%;\n       .to-do{\n        height: 100%\n        display: grid;\n        grid-template-rows: 20% 60%;\n       }\n        `;
+    style.innerText = `\n       .root{\n        height: 100%;\n       }\n       .to-do {\n        height: 100%\n        display: grid;\n        grid-template-rows: 20% 60%;\n       }\n       .inputEl,\n       .add-button {\n        border-radius: 5px;\n        height: 40px;\n        border: 0;\n       }\n       .inputEl{\n        width: 70%;\n        margin-right: 10px;\n       }\n       .add-button {\n        width: 26%;\n       }\n        `;
     div.querySelector(".add-button").addEventListener("click", ()=>{
         const inputEl = document.querySelector("input");
         let title = inputEl.value;
