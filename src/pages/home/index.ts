@@ -11,7 +11,7 @@ export function initHomePage(containerEl) {
   <button class="add-button">Agregar</button>
   </div>
   <ul class="lista"></ul> 
-
+  <div class="pagenumbers" id="pagination"></div>
   
   `;
 
@@ -38,16 +38,30 @@ export function initHomePage(containerEl) {
   });
 
   createTasks(tasks);
-  
-  div.classList.add("to-do")
+
+  div.classList.add("to-do");
   const style = document.createElement("style");
-    style.innerText = `
+  style.innerText = `
        .root{
         height: 100%;
-       .to-do{
+       }
+       .to-do {
         height: 100%
         display: grid;
         grid-template-rows: 20% 60%;
+       }
+       .inputEl,
+       .add-button {
+        border-radius: 5px;
+        height: 40px;
+        border: 0;
+       }
+       .inputEl{
+        width: 70%;
+        margin-right: 10px;
+       }
+       .add-button {
+        width: 26%;
        }
         `;
 
@@ -57,6 +71,7 @@ export function initHomePage(containerEl) {
     state.addTask(Math.random(), title);
   });
 
+ 
   containerEl.appendChild(div);
-  containerEl.appendChild(style)
+  containerEl.appendChild(style);
 }

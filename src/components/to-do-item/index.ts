@@ -16,21 +16,23 @@ customElements.define(
       const style = document.createElement("style");
       style.innerText = `
        
-        .root{
-            border-radius: 2px;
+        .item{
+            display: flex;
+            justify-content: space-between;
             padding: 22px 13px;
             font-size: 18px;
             background-color: rgba(255, 255, 255, 0.5);
             color: #000;
             border-radius: 10px;
-            color: #000;
-            -webkit-box-shadow: 0 8px 6px -6px black;
-            -moz-box-shadow: 0 8px 6px -6px black;
-            box-shadow: 0 8px 6px -6px black;
         }
 
         .titulo.checked{
             text-decoration: line-through;
+        }
+        .checkbox-input {
+          margin-top: 15px;
+          height: 20px;
+          width: 20px;
         }
         `;
 
@@ -63,7 +65,7 @@ customElements.define(
       />
       `;
 
-      div.classList.add("root");
+      div.classList.add("item");
 
       this.shadow.appendChild(div);
       this.addListeners();

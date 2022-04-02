@@ -30,7 +30,7 @@ export class Text extends HTMLElement {
           background-color: #fff;
       }
       p{
-        font-family: "Roboto";
+        font-family: 'Fira Sans', sans-serif;
         font-size: 18px;
       }
       h1,
@@ -40,10 +40,6 @@ export class Text extends HTMLElement {
         color: #000;
         border-radius: 10px;
         text-align: center;
-        color: #000;
-        -webkit-box-shadow: -6px 8px 6px -6px black;
-        -moz-box-shadow: 0 8px 6px -6px black;
-         box-shadow: 0 8px 6px -6px black;
       }
       `;
     const rootEl = document.createElement(this.tag);
