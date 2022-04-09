@@ -76,10 +76,10 @@ export function initDonePage(containerEl) {
   });
 
   div.querySelector(".button-todo").addEventListener("click", () => {
-    containerEl.goTo("/to-do");
+    containerEl.goTo("/personal-tracker/to-do");
   });
   div.querySelector(".button-done").addEventListener("click", () => {
-    containerEl.goTo("/done");
+    containerEl.goTo("/personal-tracker/done");
   });
 
 
