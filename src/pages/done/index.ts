@@ -6,6 +6,8 @@ export function initDonePage(containerEl) {
   const tasks = state.getDisabledTasks();
 
   div.innerHTML = ` 
+  <my-button class="button-todo">Pendientes</my-button>
+  <my-button class="button-done">Realizados</my-button>
   <div class="header">
   <my-text tag="h1"> Mis pendientes </my-text> 
   <input class="inputEl" type="text" placeholder="Nuevo pendiente">
@@ -72,6 +74,14 @@ export function initDonePage(containerEl) {
     let title = inputEl.value;
     state.addTask(Math.random(), title);
   });
+
+  div.querySelector(".button-todo").addEventListener("click", () => {
+    containerEl.goTo("/to-do");
+  });
+  div.querySelector(".button-done").addEventListener("click", () => {
+    containerEl.goTo("/done");
+  });
+
 
   div.appendChild(style);
   return div;

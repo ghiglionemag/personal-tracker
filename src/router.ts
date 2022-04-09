@@ -3,6 +3,7 @@ import { initToDoPage } from "./pages/to-do";
 import { state } from "./state";
 
 const routes = [
+  { path: /\//, component: initDonePage },
   {
     path: /\/done/,
     component: initDonePage,
