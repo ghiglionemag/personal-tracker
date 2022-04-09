@@ -1,8 +1,9 @@
 import { state } from "../../state";
 
-export function initHomePage(containerEl) {
-  const div = document.createElement("div");
-  const tasks = state.getEnabledTasks();
+export function initDonePage(containerEl) {
+  const div = document.querySelector(".root");
+
+  const tasks = state.getDisabledTasks();
 
   div.innerHTML = ` 
   <div class="header">
@@ -34,7 +35,7 @@ export function initHomePage(containerEl) {
   }
 
   state.suscribe(() => {
-    createTasks(state.getEnabledTasks());
+    createTasks(state.getDisabledTasks());
   });
 
   createTasks(tasks);
@@ -44,6 +45,7 @@ export function initHomePage(containerEl) {
   style.innerText = `
        .root{
         height: 100%;
+        background-color: pink;
        }
        .to-do {
         height: 100%
@@ -71,7 +73,6 @@ export function initHomePage(containerEl) {
     state.addTask(Math.random(), title);
   });
 
- 
-  containerEl.appendChild(div);
-  containerEl.appendChild(style);
+  div.appendChild(style);
+  return div;
 }

@@ -30,7 +30,7 @@ export class Text extends HTMLElement {
           background-color: #fff;
       }
       p{
-        font-family: 'Fira Sans', sans-serif;
+        font-family: "Roboto";
         font-size: 18px;
       }
       h1,

@@ -16,8 +16,13 @@ const state = {
   },
   getEnabledTasks() {
     const currentState = this.getState();
-    return currentState.tasks.filter((t) => !t.deleted);
+    return currentState.tasks.filter((t) => t.completed == false);
   },
+  getDisabledTasks(){
+    const currentState = this.getState();
+    return currentState.tasks.filter((t) => !t.completed == false);
+  }
+  ,
   addTask(id, title) {
     const currentState = this.getState();
     currentState.tasks.push({ id: id, title, completed: false });
@@ -27,6 +32,7 @@ const state = {
     const currentState = this.getState();
     const found = currentState.tasks.find((t) => t.id == id);
     found.completed = value;
+    console.log(found);
     this.setState(currentState);
   },
   setState(newState) {

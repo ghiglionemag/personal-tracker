@@ -48,8 +48,10 @@ customElements.define(
           detail: {
             id: this.id,
             value: target.checked,
+            deleted: true
           },
         });
+ 
         this.dispatchEvent(event);
       });
     }
