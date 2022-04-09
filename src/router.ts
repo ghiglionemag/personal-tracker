@@ -35,7 +35,7 @@ export function initRouter(conteiner: any) {
   }
 
   if (location.host.includes("github.io")) {
-    goTo("/personal-tracker");
+    goTo( /\/personal-tracker\/done/);
   } else {
     handleRoute(location.pathname);
   }
