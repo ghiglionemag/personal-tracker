@@ -3,7 +3,7 @@ import { initToDoPage } from "./pages/to-do";
 import { state } from "./state";
 
 const routes = [
-  { path: /\/personal-tracker/, component: initDonePage },
+ 
   {
     path: /\/personal-tracker\/done/,
     component: initDonePage,
