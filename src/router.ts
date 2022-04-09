@@ -3,13 +3,13 @@ import { initToDoPage } from "./pages/to-do";
 import { state } from "./state";
 
 const routes = [
-  { path: /\//, component: initDonePage },
+  { path: /\/personal-tracker/, component: initDonePage },
   {
-    path: /\/done/,
+    path: /\/personal-tracker\/done/,
     component: initDonePage,
   },
   {
-    path: /\/to-do/,
+    path: /\/personal-tracker\/to-do/,
     component: initToDoPage,
   },
 ];
@@ -35,7 +35,7 @@ export function initRouter(conteiner: any) {
   }
 
   if (location.host.includes("github.io")) {
-    goTo("/done");
+    goTo("personal-tracker");
   } else {
     handleRoute(location.pathname);
   }
