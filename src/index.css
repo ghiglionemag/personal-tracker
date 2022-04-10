@@ -18,10 +18,15 @@ body {
   margin-top: 4%;
 }
 .nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0px 25px;
-  background-color: bisque;
 }
 .header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 .inputEl,
 .add-button {
@@ -30,13 +35,21 @@ body {
   border: 0;
 }
 .inputEl {
-  width: 70%;
-  margin-right: 10px;
 }
 .add-button {
-  width: 26%;
+  width: 50%;
+  margin-top: 5px;
+  margin-left: 25%;
 }
-.lista{
+@media (max-width: 912px) {
+  .root {
+    background-color: yellow;
+    display: flex;
+    flex-direction: column;
+    
+  }
+}
+.lista {
   background-color: green;
   display: grid;
   grid-template-columns: 1fr 1fr;
