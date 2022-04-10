@@ -7,6 +7,6 @@ import { state } from "./state";
 function main() {
   const rootElement = document.querySelector(".root");
   initRouter(rootElement);
-  state.initState();
+  state.getState();
 }
 main();

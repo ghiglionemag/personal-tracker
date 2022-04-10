@@ -12,7 +12,7 @@ export class Button extends HTMLElement {
     const style = document.createElement("style");
     style.innerHTML = `
             .root{
-                min-width: 322px; 
+                min-width: 100pxpx; 
                 line-height: 55px;
                 margin: 12px 0px;
                 border-radius: 20px;

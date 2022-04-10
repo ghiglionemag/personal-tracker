@@ -7,10 +7,6 @@ const state = {
     ],
   },
   listeners: [],
-  initState() {
-    const localData = localStorage.getItem("saved-state");
-    this.setState(JSON.parse(localData));
-  },
   getState() {
     return this.data;
   },

@@ -16,7 +16,7 @@ export class Text extends HTMLElement {
     const style = document.createElement("style");
     style.innerHTML = `
     h1{
-        font-size: 52px;
+        font-size: 25pxpx;
         font-weight: bold;
         background-color: blue;
         max-width: 98%;
