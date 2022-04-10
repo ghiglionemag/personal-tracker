@@ -10,7 +10,7 @@ export function initDonePage(containerEl) {
   <my-button class="button-todo">Pendientes</my-button>
   <my-button class="button-done">Realizados</my-button>
   <div class="header">
-  <my-text tag="h1"> Realizados </my-text> 
+  <my-text tag="h1"> Realizados</my-text> 
   <input class="inputEl" type="text" placeholder="Nuevo pendiente">
   <button class="add-button">Agregar</button>
   </div>
@@ -44,30 +44,6 @@ export function initDonePage(containerEl) {
 
   createTasks(tasks);
 
-  const style = document.createElement("style");
-  style.innerText = `
-       .root{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        height: 100%;
-        background-color: pink;
-       }
-      
-       .inputEl,
-       .add-button {
-        border-radius: 5px;
-        height: 40px;
-        border: 0;
-       }
-       .inputEl{
-        width: 70%;
-        margin-right: 10px;
-       }
-       .add-button {
-        width: 26%;
-       }
-        `;
-
   div.querySelector(".add-button").addEventListener("click", () => {
     const inputEl = document.querySelector("input");
     let title = inputEl.value;
@@ -81,7 +57,5 @@ export function initDonePage(containerEl) {
     containerEl.goTo("/personal-tracker/done");
   });
 
-
-  div.appendChild(style);
   return div;
 }

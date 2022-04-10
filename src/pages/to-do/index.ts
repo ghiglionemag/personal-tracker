@@ -46,30 +46,6 @@ export function initToDoPage(containerEl) {
   createTasks(tasks);
 
  
-  const style = document.createElement("style");
-  style.innerText = `
-       .root{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        height: 100%;
-        background-color: purple;
-       }
-       
-       .inputEl,
-       .add-button {
-        border-radius: 5px;
-        height: 40px;
-        border: 0;
-       }
-       .inputEl{
-        width: 70%;
-        margin-right: 10px;
-       }
-       .add-button {
-        width: 26%;
-       }
-        `;
-
   div.querySelector(".add-button").addEventListener("click", () => {
     const inputEl = document.querySelector("input");
     let title = inputEl.value;
@@ -84,6 +60,6 @@ export function initToDoPage(containerEl) {
   });
 
 
-  div.appendChild(style);
+ 
   return div;
 }
