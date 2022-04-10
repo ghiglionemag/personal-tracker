@@ -5,7 +5,7 @@ import { state } from "./state";
 const routes = [
   {
     path: /personal-tracker/,
-    component: initDonePage,
+    component: initToDoPage,
   },
   {
     path: /\/personal-tracker\/done/,

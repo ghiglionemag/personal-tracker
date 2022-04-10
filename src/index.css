@@ -4,27 +4,16 @@
   box-sizing: border-box;
 }
 body {
-  background: linear-gradient(to left, #c6ffdd, #fbd786, #f7797d);
+  background: #f7f8fd;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
-.content {
-  margin-top: 5%;
-  border-radius: 20px;
-  display: grid;
-  grid-template-columns: 20% 80%;
-  align-items: center;
-  width: 950px;
-  height: 580px;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: #000;
 
-}
-.lista{
+/* .lista {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   padding: 15px 15px 0px 0px;
   gap: 15px;
-}
+} */

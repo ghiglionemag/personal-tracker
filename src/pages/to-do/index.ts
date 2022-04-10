@@ -6,12 +6,14 @@ export function initToDoPage(containerEl) {
   const tasks = state.getEnabledTasks();
 
   div.innerHTML = `
+  <div class="nav">
   <my-button class="button-todo">Pendientes</my-button>
-  <my-button class="button-done">Realizados</my-button> 
+  <my-button class="button-done">Realizados</my-button>
   <div class="header">
-  <my-text tag="h1"> Mis pendientes </my-text> 
+  <my-text tag="h1"> Pendientes </my-text> 
   <input class="inputEl" type="text" placeholder="Nuevo pendiente">
   <button class="add-button">Agregar</button>
+  </div>
   </div>
   <ul class="lista"></ul> 
   <div class="pagenumbers" id="pagination"></div>
@@ -43,18 +45,16 @@ export function initToDoPage(containerEl) {
 
   createTasks(tasks);
 
-  div.classList.add("to-do");
+ 
   const style = document.createElement("style");
   style.innerText = `
        .root{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         height: 100%;
         background-color: purple;
        }
-       .to-do {
-        height: 100%
-        display: grid;
-        grid-template-rows: 20% 60%;
-       }
+       
        .inputEl,
        .add-button {
         border-radius: 5px;
