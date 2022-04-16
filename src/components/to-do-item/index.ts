@@ -16,7 +16,7 @@ customElements.define(
       const style = document.createElement("style");
       style.innerText = `
        
-        .item{
+        .item {
             display: flex;
             justify-content: space-between;
             padding: 22px 13px;
@@ -24,6 +24,11 @@ customElements.define(
             background-color: rgba(255, 255, 255, 0.5);
             color: #000;
             border-radius: 10px;
+        }
+        @media (max-width: 912px) {
+          .item{
+            flex-direction: column;
+          }
         }
 
         .titulo.checked{

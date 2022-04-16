@@ -6,15 +6,17 @@ export function initDonePage(containerEl) {
   const tasks = state.getDisabledTasks();
 
   div.innerHTML = ` 
+
   <div class="nav">
-  <my-button class="button-todo">Pendientes</my-button>
-  <my-button class="button-done">Realizados</my-button>
+  <button class="button-todo button is-primary  is-responsive">Pendientes</button>
+  <button class="button-done button is-primary is-light is-responsive">Realizados</button>
+  </div>
+
   <div class="header">
-  <my-text tag="h1"> Realizados</my-text> 
-  <input class="inputEl" type="text" placeholder="Nuevo pendiente">
-  <button class="add-button">Agregar</button>
+  <input class="inputEl input is-success" type="text" placeholder="Nuevo pendiente">
+  <button class="add-button button is-primary">Agregar</button>
   </div>
-  </div>
+  
   <ul class="lista"></ul> 
   <div class="pagenumbers" id="pagination"></div>
   
