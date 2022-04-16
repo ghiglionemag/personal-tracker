@@ -30,8 +30,9 @@ export class Text extends HTMLElement {
           background-color: #fff;
       }
       p{
-        font-family: "Roboto";
         font-size: 18px;
+        
+        color: #00d1b2;
       }
       h1,
       h2{
