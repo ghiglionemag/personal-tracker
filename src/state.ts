@@ -8,6 +8,9 @@ const state = {
   },
   listeners: [],
   getState() {
+    if (localStorage.getItem("saved-state")) {
+      this.data = JSON.parse(localStorage.getItem("saved-state"));
+    } 
     return this.data;
   },
   getEnabledTasks() {
