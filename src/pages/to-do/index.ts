@@ -17,7 +17,7 @@ export function initToDoPage(containerEl) {
   </div>
 
 
-  <ul class="lista"></ul> 
+  <ul class="lista scroll"></ul> 
   <div class="pagenumbers" id="pagination"></div>
   
   `;
